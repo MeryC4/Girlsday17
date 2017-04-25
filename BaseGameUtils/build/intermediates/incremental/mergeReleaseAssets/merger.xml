@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/meryc/Documents/AndroidWorkspace/Girlsday17/BaseGameUtils/src/main/assets"/><source path="/Users/meryc/Documents/AndroidWorkspace/Girlsday17/BaseGameUtils/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/meryc/Documents/AndroidWorkspace/Girlsday17/BaseGameUtils/src/release/assets"/></dataSet></merger>
