@@ -24,6 +24,7 @@ import android.os.Message;
 import android.widget.Toast;
 
 public class Game extends BaseGameActivity{
+
     /** Name of the SharedPreference that saves the medals */
     public static final String coin_save = "coin_save";
     
@@ -39,17 +40,14 @@ public class Game extends BaseGameActivity{
     private InterstitialAd interstitial;
     
     /**
-     * Will play songs like:
-     * nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan
-     * nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan
-     * nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan
-     * nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan
-     * Does someone know the second verse ???
+     * Soll Sound abspielen.
      */
     public static MediaPlayer musicPlayer = null;
     
     /**
-     * Whether the music should play or not
+     * Soll der Sound abgespielt werden?
+     * Nein = false
+     * Ja = true
      */
     public boolean musicShouldPlay = false;
     
@@ -159,10 +157,16 @@ public class Game extends BaseGameActivity{
      * Because it needs an UI thread.
      */
     public void gameOver(){
+
+        //Hierhin ohne Werbung
+
+        //dann muss das hier weg
         if(gameOverCounter % GAMES_PER_AD == 0) {
             handler.sendMessage(Message.obtain(handler, MyHandler.SHOW_AD));
         } else {
-            handler.sendMessage(Message.obtain(handler, MyHandler.GAME_OVER_DIALOG));
+
+            //Hier muss was hin
+
         }
         
     }
@@ -180,11 +184,13 @@ public class Game extends BaseGameActivity{
     }
 
     /**
-     * What should happen, when an obstacle is passed?
+     * Was soll passieren, wenn der Spieler ein Hindernis passiert?
+     *
      */
     public void increasePoints(){
-        accomplishmentBox.points++;
-        
+        //Hier muss was hin
+
+
         this.view.getPlayer().upgradeBitmap(accomplishmentBox.points);
         
         if(accomplishmentBox.points >= AccomplishmentBox.BRONZE_POINTS){

@@ -60,6 +60,11 @@ public class GameView extends SurfaceView{
     private Tutorial tutorial;
     private boolean tutorialIsShown = true;
 
+
+    /**
+     * Hier wird das Spiel "zusammengebaut".
+     *
+     * */
     public GameView(Context context) {
         super(context);
         this.game = (Game) context;
@@ -127,13 +132,14 @@ public class GameView extends SurfaceView{
     }
     
     /**
-     * content of the timertask
+     * hier wird alles erstellt
      */
     public void run() {
         checkPasses();
         checkOutOfRange();
         checkCollision();
-        createObstacle();
+        //Hier muss was hin (Hindernisse erstellen)
+
         move();
 
         draw();
@@ -291,22 +297,19 @@ public class GameView extends SurfaceView{
      * Checks collisions and performs the action
      */
     private void checkCollision(){
-        for(Obstacle o : obstacles){
-            if(o.isColliding(player)){
-                o.onCollision();
-                gameOver();
-            }
-        }
-        for(int i=0; i<powerUps.size(); i++){
-            if(this.powerUps.get(i).isColliding(player)){
-                this.powerUps.get(i).onCollision();
-                this.powerUps.remove(i);
-                i--;
-            }
-        }
-        if(player.isTouchingEdge()){
-            gameOver();
-        }
+
+        /**
+         *
+         * Hier muss was hin für die Kollision mit Hindernissen
+         * */
+
+
+
+        /**
+         * Hier muss was hin für den unteren Rand
+         * */
+
+
     }
     
     /**
