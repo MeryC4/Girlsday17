@@ -17,6 +17,7 @@ import com.quchen.flappycow.Game.MyHandler;
 import com.quchen.flappycow.sprites.Background;
 import com.quchen.flappycow.sprites.Coin;
 import com.quchen.flappycow.sprites.Cow;
+import com.quchen.flappycow.sprites.Cupcake;
 import com.quchen.flappycow.sprites.Frontground;
 import com.quchen.flappycow.sprites.NyanCat;
 import com.quchen.flappycow.sprites.Obstacle;
@@ -71,7 +72,10 @@ public class GameView extends SurfaceView{
         setFocusable(true);
 
         holder = getHolder();
-        player = new Cow(this, game);
+
+        //player = new Cow(this, game);
+        //player = new NyanCat(this, game);
+        player = new Cupcake(this,game);
         background = new Background(this, game);
         frontground = new Frontground(this, game);
         pauseButton = new PauseButton(this, game);
@@ -139,7 +143,7 @@ public class GameView extends SurfaceView{
         checkOutOfRange();
         checkCollision();
         //Hier muss was hin (Hindernisse erstellen)
-
+        createObstacle();
         move();
 
         draw();
@@ -302,13 +306,20 @@ public class GameView extends SurfaceView{
          *
          * Hier muss was hin für die Kollision mit Hindernissen
          * */
-
+        for(Obstacle o : obstacles){
+            if(o.isColliding(player)){
+                o.onCollision();
+                gameOver();
+            }
+        }
 
 
         /**
          * Hier muss was hin für den unteren Rand
          * */
-
+        if(player.isTouchingEdge()){
+            gameOver();
+        }
 
     }
     

@@ -49,7 +49,7 @@ public class Game extends BaseGameActivity{
      * Nein = false
      * Ja = true
      */
-    public boolean musicShouldPlay = false;
+    public boolean musicShouldPlay = true;
     
     /** Time interval (ms) you have to press the backbutton twice in to exit */
     private static final long DOUBLE_BACK_TIME = 1000;
@@ -160,14 +160,7 @@ public class Game extends BaseGameActivity{
 
         //Hierhin ohne Werbung
 
-        //dann muss das hier weg
-        if(gameOverCounter % GAMES_PER_AD == 0) {
-            handler.sendMessage(Message.obtain(handler, MyHandler.SHOW_AD));
-        } else {
-
-            //Hier muss was hin
-
-        }
+        handler.sendMessage(Message.obtain(handler, MyHandler.GAME_OVER_DIALOG));
         
     }
     
@@ -189,7 +182,7 @@ public class Game extends BaseGameActivity{
      */
     public void increasePoints(){
         //Hier muss was hin
-
+    accomplishmentBox.points++;
 
         this.view.getPlayer().upgradeBitmap(accomplishmentBox.points);
         
